@@ -1,0 +1,31 @@
+extends layout 
+
+block content
+  main(id='recipe-container')
+    div(id="recipe-info")
+      h1=recipe.recipe_name
+      p=recipe.recipe_description
+    
+    div(id="ingredients")
+      div 
+        img(src=""+recipe.imgs[1], alt=recipe.recipe_name)
+      h2 Ingredients
+      div 
+        ul
+          each val in recipe.ingredients
+            li=val
+      div 
+        h2 Method 
+        ol
+          -let n=0;
+          -let a=1;
+          while n < recipe.method.length
+            li(class="steps")
+              div 
+                if recipe.method[n]
+                  h3=recipe.method[n]
+                if recipe.method[a]
+                  p=recipe.method[a]
+            -n+=2;
+            -a+=2;
+        img(src=""+recipe.imgs[recipe.imgs.length-1])

@@ -1,0 +1,68 @@
+/*--- Global ---*/
+html,
+body,
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+#home {
+  background-color: #f0f9f9;
+}
+a {
+  color: black;
+  text-decoration: none;
+}
+h2 {
+  text-align: center;
+  margin: 30px 0;
+}
+h3 {
+  padding-left: 60px;
+  padding: 40px 0;
+  font-size: 30px;
+  font-weight: normal;
+}
+/*--- Navigation bar ---*/
+header {
+  background: #fff;
+  border-bottom: solid 1px #ffd977;
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+}
+#logo {
+  width: 160px;
+}
+#login {
+  border-right: 1px lightgrey solid;
+  border-left: 1px lightgrey solid;
+  padding: 0 10px;
+  margin: 0 10px;
+  color: #087878;
+}
+#signSearch {
+  display: flex;
+  align-items: center;
+}
+input[type="search"] {
+  height: 34px;
+  width: 187px;
+  border-radius: 5px;
+  border: 1px lightgrey solid;
+}
+button[type="submit"] {
+  padding: 0;
+  margin: 0 0 0 5px;
+  border: none;
+  background-color: transparent;
+  outline: none;
+  cursor: pointer;
+}
+form {
+  display: flex;
+  align-items: center;
+}

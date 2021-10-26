@@ -1,0 +1,64 @@
+extends layout  
+
+block content 
+  div(id="recipe-form")
+    form(action="", method="post") 
+      label(for="recipe-name") 
+        span *Recipe Name: 
+        input(type="text", name="recipe_name" id="recipe-name" required value=(undefined===recipe? "":recipe.recipe_name)) 
+      label(for="description") 
+        span *Recipe Description: 
+        textarea(name="description" id="description" required rows="6" cols="40" style={"margin-left": "10px", "padding": "10px"})=(undefined===recipe? "":recipe.recipe_description)
+      //label(for="cover-img") 
+      //  span *Cover Image: 
+      //  input(type="file", name="imgs" accept="image/*" required) 
+
+      h2 Recipe Ingredients
+      div(id="ingredients-container")
+        if recipe
+          each val, index in recipe.ingredients
+            label 
+              span #{`Ingredients${index+1}:`}
+              input(type="text", name="ingredients" required value=val) 
+        else
+          label 
+            span *Ingredient1:
+            input(type="text", name="ingredients" required) 
+
+      button(type="button" id="addIngredient-btn" class="btns") Add Ingredient
+
+      h2 Recipe Method
+      div(id="method-container")
+        if recipe 
+          -let n=0;
+          -let a=1;
+          -let b=1;
+
+          while n < recipe.method.length
+            label 
+              span #{`Headline of step${b}:`}
+              input(type="text", name="method" required value=(recipe.method[n]? recipe.method[n] : "")) 
+            label 
+              span #{`Step${b}:`}
+              textarea(name="method" required rows="6" cols="40")=(recipe.method[a]? recipe.method[a] : "")     
+            -n+=2;
+            -a+=2;
+            -b++
+        else 
+          label 
+            span *Headeline of step1:
+            input(type="text", name="method" required) 
+          label 
+            span *Step1:
+            textarea(name="method" required rows="6" cols="40") 
+      button(type="button" id="addStep-btn" class="btns") Add Step
+
+          
+      //label(for="main-img") 
+      //  span *Main Image:
+      //  input(type="file", name="imgs" accept="image/*" required) 
+
+      //label(for="additional-img") 
+      //  span *Additional Image:
+      //  input(type="file", name="imgs" accept="image/*" required) 
+      button(type="submit" id="submit-btn") Submit

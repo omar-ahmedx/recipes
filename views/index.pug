@@ -1,0 +1,49 @@
+extends layout
+
+block content
+  main(id="home")
+    div(id='top-container')
+      div(id="muffin-img")
+      div(id="fall-recipes-container")
+        h2
+          span(class="recipes-header")  Recommended Recipes
+        div(id="fall-recipes")
+          -var n = 0;
+          while n < 6
+            div(class="fall-recipe-card")
+              a(href="/recipe/"+recipes[n].recipe_name) 
+                div(class="recipe-container")
+                  div
+                    img(src=""+recipes[n].imgs[0], alt=recipes[n].recipe_name)
+                  div
+                    p(class="recipe-name")=recipes[n].recipe_name
+            -n++
+
+    div(class="bottom-container")
+      h2
+        span(class="recipes-header") All Recipes
+      div(class="recipes-container")
+        div(class="recipes")
+          each recipe in recipes 
+            if !recipe.user
+              div(class="recipe-card")
+                a(href="/recipe/"+recipe.recipe_name) 
+                  div(class="recipe-container")
+                    div
+                      img(src=""+recipe.imgs[0], alt=recipe.recipe_name)
+                    div
+                      p(class="recipe-name")=recipe.recipe_name 
+            else 
+              div(class="recipe-card")
+                a(href="/user/"+recipe.recipe_name) 
+                  div(class="recipe-container")
+                    div
+                      p(class="recipe-name")=recipe.recipe_name 
+                    div(style={"display": "flex"})
+                      a(class="btns" href="user/"+recipe._id+"/edit") Edit
+                      form(action="user/"+recipe._id+"/delete", method="post") 
+                        button( type="submit" class="btns" style={"background-color": "red", "margin-right": "20px", "height": "100%", "padding": "5px"}) Delete
+                        input(type='hidden',name='recipeid', required='true', value=recipe._id )
+      if currentUser             
+        p(id="create-recipe")
+          a(href="/recipeCreate") Create Recipe

@@ -1,0 +1,105 @@
+#recipe-container {
+  margin: 150px 0 150px 15%;
+}
+@media only screen and (max-width: 1200px) {
+  #recipe-container {
+    margin: 150px 0 150px 5%;
+  }
+}
+@media only screen and (max-width: 740px) {
+  #recipe-container {
+    margin: 150px 2%;
+  }
+}
+#recipe-info {
+  width: 900px;
+  padding-bottom: 30px;
+  margin-bottom: 30px;
+  border-bottom: 1px #caeded solid;
+}
+@media only screen and (max-width: 1200px) {
+  #recipe-info {
+    width: 90%;
+  }
+}
+#recipe-info h1 {
+  font-size: 36px;
+  font-weight: normal;
+  margin-bottom: 20px;
+}
+#recipe-info p {
+  font-size: 22px;
+  color: grey;
+}
+@media only screen and (max-width: 700px) {
+  #recipe-info {
+    width: 100%;
+  }
+  #recipe-info h1 {
+    font-size: 30px;
+  }
+  #recipe-info p {
+    font-size: 18px;
+  }
+}
+
+#ingredients {
+  width: 650px;
+  padding-left: 20px;
+}
+@media only screen and (max-width: 700px) {
+  #ingredients {
+    width: 90%;
+  }
+}
+#ingredients h2 {
+  margin-bottom: 20px;
+  padding: 10px 0;
+  font-size: 30px;
+  font-weight: normal;
+  border-bottom: 1px #caeded solid;
+  text-align: left;
+}
+#ingredients div img {
+  width: 100%;
+}
+ul,
+ol {
+  margin-left: 30px;
+  list-style: none;
+}
+
+ul li {
+  margin: 20px 0;
+}
+ul li::before {
+  content: "\2022";
+  color: teal;
+  font-weight: bold;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+}
+ol {
+  counter-reset: method-counter;
+}
+.steps {
+  margin: 30px 0;
+}
+.steps div {
+  padding: 0 0 0 10px;
+}
+.steps h3 {
+  padding: 0;
+  margin-bottom: 15px;
+}
+.steps::before {
+  content: counter(method-counter) ". ";
+  counter-increment: method-counter;
+  position: absolute;
+  color: teal;
+  display: inline-block;
+  margin-left: -1rem;
+  width: 2rem;
+  font-size: 24px;
+}

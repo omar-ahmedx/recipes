@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  main(class="form-container")
+    form(action="" method="POST" class="sign-form") 
+      h1
+        span(class="headline") Log In
+      div(class="sign-container")
+        label(for="username")  Username: 
+        input(type="text", name="username" id="username" required)
+        label(for="password")  Password: 
+        input(type="password", name="password" id="password" required)
+        button(type="submit" id="sign-btn") Log In
