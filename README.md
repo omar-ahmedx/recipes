@@ -1,3 +1,2 @@
 # recipes
-First, cd to the repository
-then run `DEBUG=recipes:* npm start`
+First, cd to the repository and run `npm install then run `DEBUG=recipes:* npm start`
